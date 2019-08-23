@@ -1,5 +1,8 @@
-import { combineReducers } from 'redux'
-import valueReducer from './reducer.js';
+import { combineReducers } from "redux";
+import { timerReducer, sessionReducer, breakReducer } from "./reducer.js";
 
-console.log(valueReducer);
-export default valueReducer;
+export default combineReducers({
+  timer: timerReducer,
+  session: sessionReducer,
+  break: breakReducer
+});

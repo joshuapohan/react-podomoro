@@ -1,23 +1,44 @@
-export const incrementValue = () => {
-    return({
-        type: "INCREMENT_VALUE"
-    });
+export const incrementSession = () => {
+  return {
+    type: "INCREMENT_SESSION"
+  };
 };
 
-export const decrementValue = () => {
-    return({
-        type: "DECREMENT_VALUE"
-    });
+export const decrementSession = () => {
+  return {
+    type: "DECREMENT_SESSION"
+  };
+};
+
+export const incrementBreak = () => {
+  return {
+    type: "INCREMENT_BREAK"
+  };
+};
+
+export const decrementBreak = () => {
+  return {
+    type: "DECREMENT_BREAK"
+  };
 };
 
 export const startTimer = () => {
-    return({
-        type: "START_TIMER"
-    });
+  return {
+    type: "START_TIMER"
+  };
 };
 
 export const stopTimer = () => {
-    return({
-        type: "STOP_TIMER"
-    });
+  return {
+    type: "STOP_TIMER"
+  };
+};
+
+export const toggleTimer = (newTime, newLabel, isSession) => {
+  return {
+    type: "TOGGLE_TIMER",
+    time: newTime,
+    label: newLabel,
+    isSession: isSession
+  };
 };
