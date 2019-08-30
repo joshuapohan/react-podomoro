@@ -1,0 +1,16 @@
+.triangle-container {
+  position: relative;
+}
+.triangle-triangle-container {
+  position: absolute;
+  bottom: 23px;
+}
+.triangle {
+  display: inline;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid darkcyan;
+}

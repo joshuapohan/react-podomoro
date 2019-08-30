@@ -52,6 +52,8 @@ export const sessionReducer = (state = 60, action) => {
       return state + 60;
     case "DECREMENT_SESSION":
       return state >= 60 ? state - 60 : state;
+    case "RESET_TIMER":
+      return 60;
     default:
       return state;
   }
@@ -63,6 +65,8 @@ export const breakReducer = (state = 60, action) => {
       return state + 60;
     case "DECREMENT_BREAK":
       return state >= 60 ? state - 60 : state;
+    case "RESET_TIMER":
+      return 60;
     default:
       return state;
   }

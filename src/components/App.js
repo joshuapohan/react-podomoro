@@ -10,6 +10,7 @@ import {
   toggleTimer,
   resetTimer
 } from "./../actions";
+import TriangleRow from "./Triangle";
 
 import "./App.css";
 
@@ -87,13 +88,16 @@ class App extends React.Component {
       <div>
         <div className="main-title">
           <h1>Tomato Timer</h1>
+          <i class="fas fa-clock main-icon" />
         </div>
         <div className="ui page grid timer-fonts">
           <div className="row main-timer">
             <div className="five wide computer two wide mobile column" />
             <div className="six wide computer twelve wide mobile column">
               <h1>{this.props.timer.label}</h1>
-              <h1>{this.getClockDisplay(this.props.timer.value, false)}</h1>
+              <h1 className="timer-countdown">
+                {this.getClockDisplay(this.props.timer.value, false)}
+              </h1>
               <button
                 className="action-button"
                 onClick={() =>

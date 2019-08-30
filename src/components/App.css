@@ -23,6 +23,16 @@ button {
   color: white;
 }
 
+.timer-countdown {
+  font-size: 15.5vmin !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .timer-countdown {
+    font-size: 25.5vmin !important;
+  }
+}
+
 body {
   background-color: #ff6347;
 }
@@ -30,10 +40,16 @@ body {
 .main-title {
   display: block;
   color: #600000;
-  margin-top: 10vw !important;
+  margin-top: 10vmin !important;
   text-align: center !important;
 }
 
 .far {
   font-size: 40px;
+}
+
+.main-icon {
+  margin: 5vmin;
+  font-size: 20vmin;
+  color: white;
 }
