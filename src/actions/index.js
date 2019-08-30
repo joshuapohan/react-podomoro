@@ -40,6 +40,12 @@ export const resetTimer = () => {
   };
 };
 
+export const toggleVibrate = () => {
+  return {
+    type: "TOGGLE_VIBRATE"
+  };
+};
+
 export const toggleTimer = (newTime, newLabel, isSession) => {
   return {
     type: "TOGGLE_TIMER",

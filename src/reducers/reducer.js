@@ -72,4 +72,11 @@ export const breakReducer = (state = 60, action) => {
   }
 };
 
-export const notifierReducer = (state = 0, action) => {};
+export const settingReducer = (state = { vibrate: false }, action) => {
+  switch (action.type) {
+    case "TOGGLE_VIBRATE":
+      return { ...state, vibrate: !state.vibrate };
+    default:
+      return state;
+  }
+};

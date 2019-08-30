@@ -8,9 +8,9 @@ import {
   startTimer,
   stopTimer,
   toggleTimer,
-  resetTimer
+  resetTimer,
+  toggleVibrate
 } from "./../actions";
-import TriangleRow from "./Triangle";
 
 import "./App.css";
 
@@ -29,7 +29,8 @@ const mapDispatchToProps = dispatch => ({
   decrementBreak: () => dispatch(decrementBreak()),
   resetTimer: () => dispatch(resetTimer()),
   toggleTimer: (newTimer, newLabel, isSession) =>
-    dispatch(toggleTimer(newTimer, newLabel, isSession))
+    dispatch(toggleTimer(newTimer, newLabel, isSession)),
+  toggleVibrate: () => dispatch(toggleVibrate())
 });
 
 let timerInterval;
@@ -88,7 +89,7 @@ class App extends React.Component {
       <div>
         <div className="main-title">
           <h1>Tomato Timer</h1>
-          <i class="fas fa-clock main-icon" />
+          <i className="fas fa-clock main-icon" />
         </div>
         <div className="ui page grid timer-fonts">
           <div className="row main-timer">
@@ -109,16 +110,16 @@ class App extends React.Component {
                 }
               >
                 {this.props.timer.isRunning ? (
-                  <i className="far fa-pause-circle" />
+                  <i className="far fa-pause-circle play-icon" />
                 ) : (
-                  <i className="far fa-play-circle" />
+                  <i className="far fa-play-circle play-icon" />
                 )}
               </button>
               <button
                 className="action-button"
                 onClick={this.onClickResetTimer}
               >
-                <i className="far fa-stop-circle" />
+                <i className="far fa-stop-circle play-icon" />
               </button>
             </div>
             <div className="five wide computer two wide mobile column" />
@@ -132,7 +133,7 @@ class App extends React.Component {
               >
                 {"<"}
               </button>
-              <h1 className="timer">
+              <h1 className="timer setting-value">
                 {this.getClockDisplay(this.props.session, true)}
               </h1>
               <button
@@ -147,7 +148,7 @@ class App extends React.Component {
               >
                 {"<"}
               </button>
-              <h1 className="timer">
+              <h1 className="timer setting-value">
                 {this.getClockDisplay(this.props.break, true)}
               </h1>
               <button

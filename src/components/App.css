@@ -8,9 +8,15 @@ button {
   display: inline-block;
 }
 
+.setting-value {
+  font-size: 8vmin;
+}
+
 .action-button {
   display: inline-block;
+  font-size: 6vmin;
 }
+
 .action-button:focus {
   outline: none;
 }
@@ -27,12 +33,6 @@ button {
   font-size: 15.5vmin !important;
 }
 
-@media only screen and (max-width: 768px) {
-  .timer-countdown {
-    font-size: 25.5vmin !important;
-  }
-}
-
 body {
   background-color: #ff6347;
 }
@@ -40,16 +40,37 @@ body {
 .main-title {
   display: block;
   color: #600000;
-  margin-top: 10vmin !important;
+  margin-top: 5vmin !important;
   text-align: center !important;
 }
 
-.far {
-  font-size: 40px;
+.play-icon,
+.increment-icon {
+  font-size: 8vmin;
 }
 
 .main-icon {
   margin: 5vmin;
   font-size: 20vmin;
   color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .timer-countdown {
+    font-size: 25.5vmin !important;
+  }
+  .main-title {
+    margin-top: 10vmin !important;
+  }
+  .play-icon,
+  .increment-icon {
+    font-size: 15vmin;
+  }
+  .setting-value {
+    font-size: 12vmin;
+  }
+
+  .action-button {
+    font-size: 10vmin;
+  }
 }
