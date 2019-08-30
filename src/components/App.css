@@ -1,0 +1,39 @@
+button {
+  border: none;
+  background: inherit;
+  color: inherit;
+}
+
+.timer {
+  display: inline-block;
+}
+
+.action-button {
+  display: inline-block;
+}
+.action-button:focus {
+  outline: none;
+}
+
+.main-timer {
+  text-align: center;
+}
+
+.timer-fonts {
+  color: white;
+}
+
+body {
+  background-color: #ff6347;
+}
+
+.main-title {
+  display: block;
+  color: #600000;
+  margin-top: 10vw !important;
+  text-align: center !important;
+}
+
+.far {
+  font-size: 40px;
+}

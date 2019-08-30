@@ -1,8 +1,14 @@
-export const timerReducer = (
-  state = { value: 10, isRunning: false, label: "Session", isSession: true },
-  action
-) => {
+let defaultState = {
+  value: 60,
+  isRunning: false,
+  label: "Session",
+  isSession: true
+};
+
+export const timerReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case "RESET_TIMER":
+      return defaultState;
     case "START_TIMER":
       //console.log({ ...state, value: state.value - 1, isRunning: true });
       return { ...state, value: state.value - 1, isRunning: true };
@@ -51,7 +57,7 @@ export const sessionReducer = (state = 60, action) => {
   }
 };
 
-export const breakReducer = (state = 15, action) => {
+export const breakReducer = (state = 60, action) => {
   switch (action.type) {
     case "INCREMENT_BREAK":
       return state + 60;
@@ -61,3 +67,5 @@ export const breakReducer = (state = 15, action) => {
       return state;
   }
 };
+
+export const notifierReducer = (state = 0, action) => {};

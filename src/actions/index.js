@@ -34,6 +34,12 @@ export const stopTimer = () => {
   };
 };
 
+export const resetTimer = () => {
+  return {
+    type: "RESET_TIMER"
+  };
+};
+
 export const toggleTimer = (newTime, newLabel, isSession) => {
   return {
     type: "TOGGLE_TIMER",
