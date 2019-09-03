@@ -1,0 +1,17 @@
+.setting-icon {
+  position: absolute;
+  color: white;
+  font-size: 10vmin;
+  left: 5vmin;
+  top: 5vmin;
+}
+
+@media only screen and (max-width: 768px) {
+  .setting-icon {
+    position: absolute;
+    color: white;
+    font-size: 8vmin;
+    left: 5vmin;
+    top: 5vmin;
+  }
+}

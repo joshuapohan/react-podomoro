@@ -54,3 +54,10 @@ export const toggleTimer = (newTime, newLabel, isSession) => {
     isSession: isSession
   };
 };
+
+export const setBreakCounter = newCounter => {
+  return {
+    type: "SET_BREAK_COUNTER",
+    newCounter: newCounter
+  };
+};

@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import SettingIcon from "./SettingIcon";
+import { Link } from "react-router-dom";
 import {
   incrementSession,
   decrementSession,
@@ -88,6 +90,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <SettingIcon />
         <div className="main-title">
           <h1>Tomato Timer</h1>
           <i className="fas fa-clock main-icon" />
