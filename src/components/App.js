@@ -67,6 +67,7 @@ class App extends React.Component {
       if (navigator.vibrate) {
         navigator.vibrate(1000);
       }
+      //
       if (this.props.timer.isSession) {
         this.props.toggleTimer(this.props.break, "Break", false);
       } else {
@@ -95,7 +96,7 @@ class App extends React.Component {
           <div className="row main-timer">
             <div className="five wide computer two wide mobile column" />
             <div className="six wide computer twelve wide mobile column">
-              <h1>{this.props.timer.label}</h1>
+              <h1 className="timer-label">{this.props.timer.label}</h1>
               <h1 className="timer-countdown">
                 {this.getClockDisplay(this.props.timer.value, false)}
               </h1>

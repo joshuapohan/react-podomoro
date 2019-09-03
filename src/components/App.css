@@ -29,6 +29,10 @@ button {
   color: white;
 }
 
+.timer-label {
+  font-family: "Roboto", sans-serif;
+}
+
 .timer-countdown {
   font-size: 15.5vmin !important;
 }
@@ -42,6 +46,11 @@ body {
   color: #600000;
   margin-top: 5vmin !important;
   text-align: center !important;
+}
+
+.main-title > h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 40px;
 }
 
 .play-icon,
