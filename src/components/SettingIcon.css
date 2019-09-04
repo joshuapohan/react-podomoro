@@ -6,6 +6,17 @@
   top: 5vmin;
 }
 
+.gear {
+  border: none;
+  background: inherit;
+  color: inherit;
+}
+
+.gear:hover {
+  color: inherit;
+  border: none;
+}
+
 @media only screen and (max-width: 768px) {
   .setting-icon {
     position: absolute;

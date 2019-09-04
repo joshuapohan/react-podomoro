@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import SettingIcon from "./SettingIcon";
-import { Link } from "react-router-dom";
 import {
   incrementSession,
   decrementSession,
@@ -46,8 +45,11 @@ class App extends React.Component {
   };
 
   onClickStartTimer = (start, stop, isRunning) => {
-    if (isRunning) {
+    console.log(timerInterval);
+    if (isRunning || timerInterval) {
+      console.log("Running");
       clearInterval(timerInterval);
+      timerInterval = null;
       stop();
     } else {
       timerInterval = setInterval(() => {
@@ -90,15 +92,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <SettingIcon />
+        <SettingIcon path="/config" />
         <div className="main-title">
           <h1>Tomato Timer</h1>
           <i className="fas fa-clock main-icon" />
         </div>
         <div className="ui page grid timer-fonts">
           <div className="row main-timer">
-            <div className="five wide computer two wide mobile column" />
-            <div className="six wide computer twelve wide mobile column">
+            <div className="five wide computer two wide tablet two wide mobile column" />
+            <div className="six wide computer twelve wide tablet twelve wide mobile column">
               <h1 className="timer-label">{this.props.timer.label}</h1>
               <h1 className="timer-countdown">
                 {this.getClockDisplay(this.props.timer.value, false)}
@@ -126,11 +128,21 @@ class App extends React.Component {
                 <i className="far fa-stop-circle play-icon" />
               </button>
             </div>
-            <div className="five wide computer two wide mobile column" />
+            <div className="five wide computer two wide tablet two wide mobile column" />
           </div>
+          {/**
           <div className="row main-timer">
-            <div className="five wide computer two wide mobile column" />
-            <div className="six wide computer twelve wide mobile column">
+            <div className="five wide computer two wide tablet two wide mobile column" />
+            <div className="six wide computer twelve wide tablet twelve wide mobile column">
+              <h2 className="timer-label">Session</h2>
+              <h2 className="timer-label">Break</h2>
+            </div>
+            <div className="five wide computer two wide tablet two wide mobile column" />
+          </div>
+                */}
+          <div className="row main-timer">
+            <div className="five wide computer two wide tablet two wide mobile column" />
+            <div className="six wide computer twelve wide tablet twelve wide mobile column">
               <button
                 className="action-button"
                 onClick={() => this.props.decrementSession()}
@@ -162,7 +174,7 @@ class App extends React.Component {
                 {">"}
               </button>
             </div>
-            <div className="five wide computer two wide mobile column" />
+            <div className="five wide computer two wide tablet two wide mobile column" />
           </div>
         </div>
       </div>

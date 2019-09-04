@@ -1,9 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import SettingIcon from "./SettingIcon";
 
 class Config extends React.Component {
   render() {
-    return <div>Config</div>;
+    return (
+      <div>
+        <SettingIcon path="/" />
+        Config
+      </div>
+    );
   }
 }
 

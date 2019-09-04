@@ -31,6 +31,7 @@ button {
 
 .timer-label {
   font-family: "Roboto", sans-serif;
+  display: inline-block;
 }
 
 .timer-countdown {
@@ -38,7 +39,7 @@ button {
 }
 
 body {
-  background-color: #ff6347;
+  background-color: #dc3545 !important;
 }
 
 .main-title {
