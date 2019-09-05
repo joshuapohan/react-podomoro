@@ -66,10 +66,11 @@ class App extends React.Component {
         navigator.mozVibrate ||
         navigator.msVibrate;
 
-      if (navigator.vibrate && this.props.setting.vibrate) {
+      if (navigator.vibrate) {
         navigator.vibrate(1000);
       }
       //
+      console.log("Timer toggled");
       if (this.props.timer.isSession) {
         this.props.toggleTimer(this.props.break, "Break", false);
       } else {

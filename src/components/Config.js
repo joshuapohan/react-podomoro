@@ -1,22 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleVibrate } from "./../actions";
+import { toggleVibrate, toggleBreakCounter } from "./../actions";
 import SettingIcon from "./SettingIcon";
 import "./Config.css";
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    setting: state.setting
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setVibrate: vibrate => dispatch(toggleVibrate(vibrate))
+    setVibrate: vibrate => dispatch(toggleVibrate(vibrate)),
+    setToggleBreakCounter: isSetCount =>
+      dispatch(toggleBreakCounter(isSetCount))
   };
 };
 
 class Config extends React.Component {
-  onChange = event => {
+  onChangeVibrate = event => {
     this.props.setVibrate(event.target.value);
+  };
+
+  onChangeToggleCounter = event => {
+    this.props.setToggleBreakCounter(event.target.value);
   };
 
   render() {
@@ -28,9 +36,30 @@ class Config extends React.Component {
         </div>
         <SettingIcon path="/" color="white" />
         <div className="config-bg">
-          <div className="ui toggle checkbox">
-            <input type="checkbox" name="public" onChange={this.onChange} />
-            <label>Vibrate</label>
+          <div className="setting-input-wrapper">
+            <div className="ui toggle checkbox setting-input">
+              <input
+                type="checkbox"
+                name="public"
+                onChange={this.onChangeVibrate}
+                checked={this.props.setting.vibrate}
+              />
+              <label>Vibrate</label>
+            </div>
+          </div>
+          <div className="setting-input-wrapper">
+            <div className="ui toggle checkbox setting-input">
+              <input
+                type="checkbox"
+                name="public"
+                onChange={this.onChangeToggleCounter}
+                checked={this.props.setting.breakCounter}
+              />
+              <label>Use Break Counter</label>
+              <div className="ui input setting-counter-input">
+                <input type="text" placeholder="..." />
+              </div>
+            </div>
           </div>
         </div>
       </div>

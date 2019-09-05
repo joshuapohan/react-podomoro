@@ -81,10 +81,17 @@ export const breakReducer = (state = 60, action) => {
   }
 };
 
-export const settingReducer = (state = { vibrate: false }, action) => {
+export const settingReducer = (
+  state = { vibrate: false, newCounter: 0, breakCounter: false },
+  action
+) => {
   switch (action.type) {
     case "TOGGLE_VIBRATE":
       return { ...state, vibrate: !state.vibrate };
+    case "SET_BREAK_COUNTER":
+      return { ...state, newCounter: action.newCounter };
+    case "TOGGLE_BREAK_COUNTER":
+      return { ...state, breakCounter: !state.breakCounter };
     default:
       return state;
   }

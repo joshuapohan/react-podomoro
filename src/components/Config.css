@@ -1,4 +1,5 @@
 .config-bg {
+  text-align: center;
 }
 
 .main-title {
@@ -14,12 +15,14 @@
   color: white;
 }
 
-.config-label {
-  color: white !important;
-  font-size: 5vmin !important;
+.setting-input {
+  margin-top: 15px;
 }
 
-.ui.toggle.checkbox input:checked ~ .box,
-.ui.toggle.checkbox input:checked ~ label {
-  color: white !important;
+.setting-input-wrapper {
+  display: block !important;
+}
+
+.setting-counter-input {
+  display: inline-block !important;
 }

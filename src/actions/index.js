@@ -62,3 +62,10 @@ export const setBreakCounter = newCounter => {
     newCounter: newCounter
   };
 };
+
+export const toggleBreakCounter = breakCounter => {
+  return {
+    type: "TOGGLE_BREAK_COUNTER",
+    breakCounter: breakCounter
+  };
+};
