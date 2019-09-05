@@ -88,7 +88,7 @@ export const settingReducer = (
   switch (action.type) {
     case "TOGGLE_VIBRATE":
       return { ...state, vibrate: !state.vibrate };
-    case "SET_BREAK_COUNTER":
+    case "SET_LONG_BREAK":
       return { ...state, newCounter: action.newCounter };
     case "TOGGLE_BREAK_COUNTER":
       return { ...state, breakCounter: !state.breakCounter };

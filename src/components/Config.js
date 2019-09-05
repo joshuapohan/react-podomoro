@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleVibrate, toggleBreakCounter } from "./../actions";
+import { toggleVibrate, toggleBreakCounter, setLongBreak } from "./../actions";
 import SettingIcon from "./SettingIcon";
 import "./Config.css";
 
@@ -14,7 +14,8 @@ const mapDispatchToProps = dispatch => {
   return {
     setVibrate: vibrate => dispatch(toggleVibrate(vibrate)),
     setToggleBreakCounter: isSetCount =>
-      dispatch(toggleBreakCounter(isSetCount))
+      dispatch(toggleBreakCounter(isSetCount)),
+    setLongBreak: longBreak => dispatch(setLongBreak(longBreak))
   };
 };
 
@@ -27,6 +28,10 @@ class Config extends React.Component {
     this.props.setToggleBreakCounter(event.target.value);
   };
 
+  onChangeLongBreak = event => {
+    this.props.SetLongBreak(event.target.value);
+  };
+
   render() {
     return (
       <div>
@@ -35,31 +40,42 @@ class Config extends React.Component {
           <i class="fas fa-wrench main-icon" />
         </div>
         <SettingIcon path="/" color="white" />
-        <div className="config-bg">
-          <div className="setting-input-wrapper">
-            <div className="ui toggle checkbox setting-input">
-              <input
-                type="checkbox"
-                name="public"
-                onChange={this.onChangeVibrate}
-                checked={this.props.setting.vibrate}
-              />
-              <label>Vibrate</label>
-            </div>
-          </div>
-          <div className="setting-input-wrapper">
-            <div className="ui toggle checkbox setting-input">
-              <input
-                type="checkbox"
-                name="public"
-                onChange={this.onChangeToggleCounter}
-                checked={this.props.setting.breakCounter}
-              />
-              <label>Use Break Counter</label>
-              <div className="ui input setting-counter-input">
-                <input type="text" placeholder="..." />
+        <div className="ui page grid timer-fonts">
+          <div className="row">
+            <div className="four wide computer column" />
+            <div className="four wide computer  column">
+              <div className="setting-input-wrapper">
+                <div className="ui toggle checkbox setting-input">
+                  <input
+                    type="checkbox"
+                    name="public"
+                    onChange={this.onChangeVibrate}
+                    checked={this.props.setting.vibrate}
+                  />
+                  <label>Vibrate</label>
+                </div>
+              </div>
+              <div className="setting-input-wrapper">
+                <div className="ui toggle checkbox setting-input">
+                  <input
+                    type="checkbox"
+                    name="public"
+                    onChange={this.onChangeToggleCounter}
+                    checked={this.props.setting.breakCounter}
+                  />
+                  <label>Use Break Counter</label>
+                </div>
+              </div>
+              <div class="ui labeled input setting-input">
+                <div class="ui label">Long Break</div>
+                <input
+                  type="text"
+                  placeholder="... seconds"
+                  onChange={this.props.onChangeLongBreak}
+                />
               </div>
             </div>
+            <div className="four wide computer column" />
           </div>
         </div>
       </div>
