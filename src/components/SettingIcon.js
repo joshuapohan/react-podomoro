@@ -4,10 +4,12 @@ import "./SettingIcon.css";
 
 export default props => {
   return (
-    <div className="setting-icon">
-      <Link className="gear" to={props.path}>
-        <i className="fas fa-cog" />
-      </Link>
+    <div>
+      <div className="setting-icon">
+        <Link className="gear" to={props.path} style={{ color: props.color }}>
+          <i className="fas fa-cog" />
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,25 @@
+.config-bg {
+}
+
+.main-title {
+  display: block;
+  color: #600000;
+  margin-top: 5vmin !important;
+  text-align: center !important;
+}
+
+.main-icon {
+  margin: 5vmin;
+  font-size: 20vmin;
+  color: white;
+}
+
+.config-label {
+  color: white !important;
+  font-size: 5vmin !important;
+}
+
+.ui.toggle.checkbox input:checked ~ .box,
+.ui.toggle.checkbox input:checked ~ label {
+  color: white !important;
+}

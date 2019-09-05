@@ -10,7 +10,6 @@ export const timerReducer = (state = defaultState, action) => {
     case "RESET_TIMER":
       return defaultState;
     case "START_TIMER":
-      //console.log({ ...state, value: state.value - 1, isRunning: true });
       return { ...state, value: state.value - 1, isRunning: true };
     case "STOP_TIMER":
       return { ...state, value: state.value, isRunning: false };

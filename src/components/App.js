@@ -45,9 +45,7 @@ class App extends React.Component {
   };
 
   onClickStartTimer = (start, stop, isRunning) => {
-    console.log(timerInterval);
     if (isRunning || timerInterval) {
-      console.log("Running");
       clearInterval(timerInterval);
       timerInterval = null;
       stop();
@@ -68,7 +66,7 @@ class App extends React.Component {
         navigator.mozVibrate ||
         navigator.msVibrate;
 
-      if (navigator.vibrate) {
+      if (navigator.vibrate && this.props.setting.vibrate) {
         navigator.vibrate(1000);
       }
       //
@@ -92,7 +90,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <SettingIcon path="/config" />
+        <SettingIcon path="/config" color="white" />
         <div className="main-title">
           <h1>Tomato Timer</h1>
           <i className="fas fa-clock main-icon" />

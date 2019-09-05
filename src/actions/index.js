@@ -40,9 +40,10 @@ export const resetTimer = () => {
   };
 };
 
-export const toggleVibrate = () => {
+export const toggleVibrate = vibrate => {
   return {
-    type: "TOGGLE_VIBRATE"
+    type: "TOGGLE_VIBRATE",
+    vibrate: vibrate
   };
 };
 
