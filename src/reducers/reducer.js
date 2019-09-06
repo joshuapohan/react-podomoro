@@ -1,5 +1,5 @@
 let defaultState = {
-  value: 10,
+  value: 60,
   isRunning: false,
   label: "Session",
   isSession: true,
@@ -57,7 +57,7 @@ export const timerReducer = (state = defaultState, action) => {
   }
 };
 
-export const sessionReducer = (state = 10, action) => {
+export const sessionReducer = (state = 60, action) => {
   switch (action.type) {
     case "INCREMENT_SESSION":
       if (state < 3600) {
@@ -73,7 +73,7 @@ export const sessionReducer = (state = 10, action) => {
   }
 };
 
-export const breakReducer = (state = 10, action) => {
+export const breakReducer = (state = 60, action) => {
   switch (action.type) {
     case "INCREMENT_BREAK":
       if (state < 3600) {

@@ -155,7 +155,7 @@ class App extends React.Component {
               >
                 {"<"}
               </button>
-              <h1 className="timer setting-value">
+              <h1 id="session-value" className="timer setting-value">
                 {this.getClockDisplay(this.props.session, true)}
               </h1>
               <button
@@ -170,7 +170,7 @@ class App extends React.Component {
               >
                 {"<"}
               </button>
-              <h1 className="timer setting-value">
+              <h1 id="break-value" className="timer setting-value">
                 {this.getClockDisplay(this.props.break, true)}
               </h1>
               <button

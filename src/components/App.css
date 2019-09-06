@@ -65,6 +65,30 @@ body {
   color: white;
 }
 
+#session-value {
+  position: relative;
+}
+
+#break-value {
+  position: relative;
+}
+
+#session-value::before {
+  position: absolute;
+  top: -50%;
+  left: 0%;
+  font-size: 3vmin;
+  content: "Session";
+}
+
+#break-value::before {
+  position: absolute;
+  top: -50%;
+  left: 0%;
+  font-size: 3vmin;
+  content: "Break";
+}
+
 @media only screen and (max-width: 768px) {
   .timer-countdown {
     font-size: 25.5vmin !important;
@@ -82,5 +106,13 @@ body {
 
   .action-button {
     font-size: 10vmin;
+  }
+
+  #session-value::before {
+    font-size: 5vmin;
+  }
+
+  #break-value::before {
+    font-size: 5vmin;
   }
 }
