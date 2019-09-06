@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleVibrate, toggleBreakCounter, setLongBreak } from "./../actions";
+import { toggleVibrate, toggleLongBreak, setLongBreak } from "./../actions";
 import SettingIcon from "./SettingIcon";
 import "./Config.css";
 
@@ -13,9 +13,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     setVibrate: vibrate => dispatch(toggleVibrate(vibrate)),
-    setToggleBreakCounter: isSetCount =>
-      dispatch(toggleBreakCounter(isSetCount)),
-    setLongBreak: longBreak => dispatch(setLongBreak(longBreak))
+    setUseLongBreak: useLong => dispatch(toggleLongBreak(useLong)),
+    setLBreak: longBreak => dispatch(setLongBreak(longBreak))
   };
 };
 
@@ -25,11 +24,11 @@ class Config extends React.Component {
   };
 
   onChangeToggleCounter = event => {
-    this.props.setToggleBreakCounter(event.target.value);
+    this.props.setUseLongBreak(event.target.value);
   };
 
   onChangeLongBreak = event => {
-    this.props.SetLongBreak(event.target.value);
+    this.props.setLBreak(event.target.value);
   };
 
   render() {
@@ -61,7 +60,7 @@ class Config extends React.Component {
                     type="checkbox"
                     name="public"
                     onChange={this.onChangeToggleCounter}
-                    checked={this.props.setting.breakCounter}
+                    checked={this.props.setting.useLongBreak}
                   />
                   <label>Use Break Counter</label>
                 </div>
@@ -71,7 +70,8 @@ class Config extends React.Component {
                 <input
                   type="text"
                   placeholder="... seconds"
-                  onChange={this.props.onChangeLongBreak}
+                  value={this.props.setting.longBreak}
+                  onChange={this.onChangeLongBreak}
                 />
               </div>
             </div>

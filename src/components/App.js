@@ -18,7 +18,8 @@ import "./App.css";
 const mapStateToProps = state => ({
   timer: state.timer,
   session: state.session,
-  break: state.break
+  break: state.break,
+  setting: state.setting
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -59,6 +60,7 @@ class App extends React.Component {
 
   checkTimer = () => {
     if (this.props.timer.value <= 0) {
+      console.log(this.props.timer.breakCounter);
       // enable vibration support
       navigator.vibrate =
         navigator.vibrate ||
@@ -69,10 +71,15 @@ class App extends React.Component {
       if (navigator.vibrate) {
         navigator.vibrate(1000);
       }
-      //
-      console.log("Timer toggled");
       if (this.props.timer.isSession) {
-        this.props.toggleTimer(this.props.break, "Break", false);
+        if (
+          this.props.setting.useLongBreak &&
+          this.props.timer.breakCounter === 4
+        ) {
+          this.props.toggleTimer(this.props.setting.longBreak, "Break", false);
+        } else {
+          this.props.toggleTimer(this.props.break, "Break", false);
+        }
       } else {
         this.props.toggleTimer(this.props.session, "Session", true);
       }

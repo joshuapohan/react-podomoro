@@ -1,8 +1,9 @@
 let defaultState = {
-  value: 60,
+  value: 10,
   isRunning: false,
   label: "Session",
-  isSession: true
+  isSession: true,
+  breakCounter: 0
 };
 
 export const timerReducer = (state = defaultState, action) => {
@@ -14,11 +15,18 @@ export const timerReducer = (state = defaultState, action) => {
     case "STOP_TIMER":
       return { ...state, value: state.value, isRunning: false };
     case "TOGGLE_TIMER":
+      let newBreakCount = state.breakCounter;
+      if (state.isSession) {
+        newBreakCount = state.breakCounter + 1;
+      } else {
+        newBreakCount = state.breakCounter === 5 ? 0 : state.breakCounter;
+      }
       return {
         ...state,
         value: action.time,
         label: action.label,
-        isSession: action.isSession
+        isSession: action.isSession,
+        breakCounter: newBreakCount
       };
     case "INCREMENT_SESSION":
       if (state.isSession) {
@@ -49,7 +57,7 @@ export const timerReducer = (state = defaultState, action) => {
   }
 };
 
-export const sessionReducer = (state = 60, action) => {
+export const sessionReducer = (state = 10, action) => {
   switch (action.type) {
     case "INCREMENT_SESSION":
       if (state < 3600) {
@@ -57,7 +65,7 @@ export const sessionReducer = (state = 60, action) => {
       }
       return state;
     case "DECREMENT_SESSION":
-      return state >= 60 ? state - 60 : state;
+      return state >= 60 ? state - 10 : state;
     case "RESET_TIMER":
       return 60;
     default:
@@ -65,7 +73,7 @@ export const sessionReducer = (state = 60, action) => {
   }
 };
 
-export const breakReducer = (state = 60, action) => {
+export const breakReducer = (state = 10, action) => {
   switch (action.type) {
     case "INCREMENT_BREAK":
       if (state < 3600) {
@@ -82,16 +90,16 @@ export const breakReducer = (state = 60, action) => {
 };
 
 export const settingReducer = (
-  state = { vibrate: false, newCounter: 0, breakCounter: false },
+  state = { vibrate: false, longBreak: 0, useLongBreak: false },
   action
 ) => {
   switch (action.type) {
     case "TOGGLE_VIBRATE":
       return { ...state, vibrate: !state.vibrate };
     case "SET_LONG_BREAK":
-      return { ...state, newCounter: action.newCounter };
-    case "TOGGLE_BREAK_COUNTER":
-      return { ...state, breakCounter: !state.breakCounter };
+      return { ...state, longBreak: action.longBreak };
+    case "TOGGLE_LONG_BREAK":
+      return { ...state, useLongBreak: !state.useLongBreak };
     default:
       return state;
   }
