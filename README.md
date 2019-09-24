@@ -1,4 +1,4 @@
-# React Podomoro
+# React Podomoro 🍅
 
 Podomoro tomato timer implemented in React.
 
