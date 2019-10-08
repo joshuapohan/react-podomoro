@@ -65,11 +65,10 @@ class Config extends React.Component {
                   <label>Use Break Counter</label>
                 </div>
               </div>
-              <div class="ui labeled input setting-input">
-                <div class="ui label">Long Break</div>
+              <div class="ui input">
                 <input
                   type="text"
-                  placeholder="... seconds"
+                  placeholder="long break ... seconds"
                   value={this.props.setting.longBreak}
                   onChange={this.onChangeLongBreak}
                 />
